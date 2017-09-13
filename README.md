@@ -101,12 +101,13 @@ If left on automatic, upon expanding the BottomSheet to it's full mode, it will 
 
 ```swift
         bottomSheet!.setUp(parentController: self, tableDelegate: nil, tableDataSource: nil, maxBottomSheetHeight: 0)
-The maxBottomSheetHeight property sets a limit to that in case you would preffer the bottomSheet would not go further up than a specific height.
 ```
+The maxBottomSheetHeight property sets a limit to that in case you would preffer the bottomSheet would not go further up than a specific height.
 
 ## Outro
 
 ### Limitations:
+Currently when scrolling up, if the table inside the view has more info to scroll, you need to stop panning and start scrolling up again in order to keep scrolling up. This isnt a huge deal ( and it works the other way around which is the most important of the two anyway ) but would be still nice to find a way to work around this.
 
 ### Contribute
 The component was written fast and out necessity.Im very open to input as I am still improving in iOS development so feel free to submit a pull request or any comments you might have.
