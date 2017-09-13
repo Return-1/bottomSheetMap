@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BottomSheet" customModule="BottomSheet" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="test.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="jyP-iX-9jC" userLabel="MainImage">
+                    <rect key="frame" x="0.0" y="117" width="375" height="150"/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="fb9-kx-iGT"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fee-8Z-bxB" userLabel="ObscureFadeEffectView">
+                    <rect key="frame" x="0.0" y="117" width="375" height="150"/>
+                    <color key="backgroundColor" red="0.18823529411764706" green="0.4799669385" blue="0.99896496530000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jYI-63-TWR" userLabel="DismissButton">
+                    <rect key="frame" x="0.0" y="122" width="35" height="35"/>
+                    <color key="backgroundColor" red="0.90668823970000001" green="1" blue="0.39474102630000002" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="mcf-oK-4sX"/>
+                        <constraint firstAttribute="width" secondItem="jYI-63-TWR" secondAttribute="height" multiplier="1:1" id="tRZ-iA-hh8"/>
+                    </constraints>
+                    <state key="normal" image="whiteChevron.png">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="dismissWithSender:" destination="iN0-l3-epB" eventType="touchUpInside" id="o3M-BG-jQJ"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C2Z-TK-1Kr" userLabel="pullUpView">
+                    <rect key="frame" x="0.0" y="267" width="375" height="400"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aRL-1Q-kCZ">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="400" id="9Qo-fA-QjT"/>
+                        <constraint firstItem="aRL-1Q-kCZ" firstAttribute="leading" secondItem="C2Z-TK-1Kr" secondAttribute="leading" id="KEB-eI-4Ir"/>
+                        <constraint firstItem="aRL-1Q-kCZ" firstAttribute="top" secondItem="C2Z-TK-1Kr" secondAttribute="top" id="Snn-Q1-oUx"/>
+                        <constraint firstAttribute="trailing" secondItem="aRL-1Q-kCZ" secondAttribute="trailing" id="TQ3-my-8il"/>
+                        <constraint firstAttribute="bottom" secondItem="aRL-1Q-kCZ" secondAttribute="bottom" id="bZh-iw-Eue"/>
+                    </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="PVb-ic-qeQ" appends="YES" id="kMv-a6-5EW"/>
+                    </connections>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NKD-ki-zoR">
+                    <rect key="frame" x="290.5" y="244" width="75" height="75"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="NKD-ki-zoR" secondAttribute="height" id="Ygd-eJ-3D8"/>
+                    </constraints>
+                    <state key="normal" title="Button" image="goThere.png"/>
+                    <connections>
+                        <action selector="navigateCarButtonPressedWithSender:" destination="iN0-l3-epB" eventType="touchUpInside" id="n9o-Nn-0iw"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstItem="jYI-63-TWR" firstAttribute="leading" secondItem="jyP-iX-9jC" secondAttribute="leading" id="5Kr-O8-Zzc"/>
+                <constraint firstItem="C2Z-TK-1Kr" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="9WM-WQ-mjA"/>
+                <constraint firstItem="Fee-8Z-bxB" firstAttribute="trailing" secondItem="jyP-iX-9jC" secondAttribute="trailing" id="H8n-xr-HLX"/>
+                <constraint firstItem="C2Z-TK-1Kr" firstAttribute="top" secondItem="NKD-ki-zoR" secondAttribute="bottom" constant="-52" id="HGj-ly-fAP"/>
+                <constraint firstItem="C2Z-TK-1Kr" firstAttribute="top" secondItem="jyP-iX-9jC" secondAttribute="bottom" id="Lbt-c2-nd8"/>
+                <constraint firstItem="jYI-63-TWR" firstAttribute="top" secondItem="jyP-iX-9jC" secondAttribute="top" constant="5" id="Mmx-iw-j6z"/>
+                <constraint firstItem="Fee-8Z-bxB" firstAttribute="bottom" secondItem="jyP-iX-9jC" secondAttribute="bottom" id="TzQ-KU-G8j"/>
+                <constraint firstAttribute="trailing" secondItem="jyP-iX-9jC" secondAttribute="trailing" id="VTd-wi-JsU"/>
+                <constraint firstItem="NKD-ki-zoR" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="1.75" id="cyz-hI-pgC"/>
+                <constraint firstItem="Fee-8Z-bxB" firstAttribute="leading" secondItem="jyP-iX-9jC" secondAttribute="leading" id="fMk-f9-fjR"/>
+                <constraint firstItem="Fee-8Z-bxB" firstAttribute="top" secondItem="jyP-iX-9jC" secondAttribute="top" id="fuo-mO-R75"/>
+                <constraint firstItem="jyP-iX-9jC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="rp6-op-ozD"/>
+                <constraint firstAttribute="bottom" secondItem="C2Z-TK-1Kr" secondAttribute="bottom" id="uet-zG-x0C"/>
+                <constraint firstItem="NKD-ki-zoR" firstAttribute="width" secondItem="jyP-iX-9jC" secondAttribute="width" multiplier="0.2" id="yOL-6i-WD9"/>
+                <constraint firstAttribute="trailing" secondItem="C2Z-TK-1Kr" secondAttribute="trailing" id="zfE-Pl-EEI"/>
+            </constraints>
+            <connections>
+                <outlet property="dataTable" destination="aRL-1Q-kCZ" id="JIj-VK-qNU"/>
+                <outlet property="dismissButton" destination="jYI-63-TWR" id="IxB-zF-hGp"/>
+                <outlet property="mainImagePullUp" destination="jyP-iX-9jC" id="u1a-t9-Im9"/>
+                <outlet property="mainImagePullUpBottomCSTR" destination="Lbt-c2-nd8" id="Kd1-0T-bkQ"/>
+                <outlet property="mainImagePullUpHeightCSTR" destination="fb9-kx-iGT" id="m33-kr-PpA"/>
+                <outlet property="navigateCarButton" destination="NKD-ki-zoR" id="98f-0L-ewP"/>
+                <outlet property="obscuringFadeEffectView" destination="Fee-8Z-bxB" id="Pp5-hu-tQV"/>
+                <outlet property="pullUpViewHeightCSTR" destination="9Qo-fA-QjT" id="imx-Qm-gQD"/>
+                <outlet property="pullupView" destination="C2Z-TK-1Kr" id="cxr-qQ-sGV"/>
+                <outletCollection property="gestureRecognizers" destination="lqX-9E-y0Z" appends="YES" id="Rib-hc-Mhg"/>
+                <outletCollection property="gestureRecognizers" destination="mRi-nh-C2A" appends="YES" id="Btt-Sh-gUi"/>
+                <outletCollection property="gestureRecognizers" destination="Q4q-Qs-mIf" appends="YES" id="DHu-5z-dKV"/>
+            </connections>
+            <point key="canvasLocation" x="-227" y="-115.5"/>
+        </view>
+        <swipeGestureRecognizer direction="up" id="mRi-nh-C2A">
+            <connections>
+                <action selector="handleSwipeUpWithRecognizer:" destination="iN0-l3-epB" id="KQM-Sd-WhB"/>
+                <outlet property="delegate" destination="iN0-l3-epB" id="FyH-U9-Ez2"/>
+            </connections>
+        </swipeGestureRecognizer>
+        <swipeGestureRecognizer direction="down" id="Q4q-Qs-mIf">
+            <connections>
+                <action selector="handleSwipeDownWithRecognizer:" destination="iN0-l3-epB" id="YMh-Ja-5Qa"/>
+                <outlet property="delegate" destination="iN0-l3-epB" id="lNs-bz-chO"/>
+            </connections>
+        </swipeGestureRecognizer>
+        <panGestureRecognizer minimumNumberOfTouches="1" id="lqX-9E-y0Z">
+            <connections>
+                <action selector="handlePanWithRecognizer:" destination="iN0-l3-epB" id="Jra-Mg-cs8"/>
+                <outlet property="delegate" destination="iN0-l3-epB" id="ZAS-s1-aED"/>
+            </connections>
+        </panGestureRecognizer>
+        <tapGestureRecognizer id="PVb-ic-qeQ">
+            <connections>
+                <action selector="handleTapPullUpSheetWithRecognizer:" destination="iN0-l3-epB" id="xby-cb-9fO"/>
+                <outlet property="delegate" destination="iN0-l3-epB" id="7XX-Uh-1ub"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+    <resources>
+        <image name="goThere.png" width="253" height="253"/>
+        <image name="test.jpeg" width="3000" height="1999"/>
+        <image name="whiteChevron.png" width="100" height="100"/>
+    </resources>
+</document>
