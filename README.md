@@ -1,4 +1,4 @@
-# bottomSheetMap
+# bottomSheet for iOS
 Emulating the bottom sheet component found in google maps. You can run the BottomSheetApp target to try it out.
 
 ## Basic Setup
@@ -10,6 +10,8 @@ This section describes how to quickly setup the BottomSheet component.
 Load the component 
 ```swift
 var bottomSheet = BottomSheet.getBottomSheetComponent();
+//add to subview
+self.view.addSubview(bottomSheet);
 ```
 ### Step 2 Method A
 
