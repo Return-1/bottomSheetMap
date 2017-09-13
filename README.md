@@ -44,9 +44,44 @@ If you re using method B) then you NEED to implement scrollViewDidScroll and add
 
 Note : If anyone has a better idea on how to structure this im all ears, drop me a line. Generally multiple delegates are not considered a good idea : https://stackoverflow.com/questions/12774808/multiple-delegates-in-ios
 
+### Step 2 Method c
+Coming soon... Working on a solution that can mix and max methods B and A
+
 ### Step 3
 
 You're done! Display your bottomSheet by calling
 ```swift
 bottomSheet!.pullUpViewSetMode_SUMMARY()
 ```
+
+### Customization
+
+When initializing the BottomSheet you can either sepcify a maxHeight or leave it on automatic.
+
+#### Automatic:
+```swift
+        bottomSheet!.setUp(parentController: self)
+```
+#### Custom:
+
+```swift
+        bottomSheet!.setUp(parentController: self, tableDelegate: nil, tableDataSource: nil, maxBottomSheetHeight: 0)
+```
+
+If left on automatic, upon expanding the BottomSheet to it's full mode, it will cover the entire containing view. The maxBottomSheetHeight property sets a limit to that in case you would preffer the bottomSheet would not go further up than a specific height.
+
+### Bottom Sheet Modes
+
+The bottom Sheet can be at any of four modes at any given time which you can get by using:
+```swift
+bottomSheet.getMode()
+```
+
+Modes:
+FULL : The bottomSheet is fully rolled up
+SUMMARY: The bottomSheet is displaying at the bottom of it's parent
+HIDDEN: The bottomSheet is hidden
+OTHER: This covers all other modes like when in transit
+
+
+
