@@ -138,7 +138,7 @@ public class BottomSheet : UIView, UIGestureRecognizerDelegate, UITableViewDeleg
             var heightOfNavBar = self.parentController?.navigationController?.navigationBar.frame.height ?? 0
             let statusBarHeight = UIApplication.shared.statusBarFrame.height
             
-            pullUpViewHeightCSTR.constant = self.parentController!.view.frame.height - mainImagePullUpHeightCSTR.constant
+            pullUpViewHeightCSTR.constant = self.parentController!.view.frame.height - mainImagePullUpHeightCSTR.constant - statusBarHeight - heightOfNavBar
         }else{
             pullUpViewHeightCSTR.constant = self.userSetMaxHeightForPullupView;
         }

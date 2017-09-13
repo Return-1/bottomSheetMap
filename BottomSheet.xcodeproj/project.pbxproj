@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C4F29831F69723700BC5F1D /* backgroundbottomsheetapp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C4F29821F69723700BC5F1D /* backgroundbottomsheetapp.png */; };
 		0C55D5B71F67FEF200B4B213 /* BottomSheet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C55D5AD1F67FEF200B4B213 /* BottomSheet.framework */; };
 		0C55D5BC1F67FEF200B4B213 /* BottomSheetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C55D5BB1F67FEF200B4B213 /* BottomSheetTests.swift */; };
 		0C55D5BE1F67FEF200B4B213 /* BottomSheet.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C55D5B01F67FEF200B4B213 /* BottomSheet.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -81,6 +82,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C4F29821F69723700BC5F1D /* backgroundbottomsheetapp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = backgroundbottomsheetapp.png; path = ../../../../backgroundbottomsheetapp.png; sourceTree = "<group>"; };
 		0C55D5AD1F67FEF200B4B213 /* BottomSheet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BottomSheet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C55D5B01F67FEF200B4B213 /* BottomSheet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BottomSheet.h; sourceTree = "<group>"; };
 		0C55D5B11F67FEF200B4B213 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 		0C55D60B1F6802E500B4B213 /* BottomSheetApp */ = {
 			isa = PBXGroup;
 			children = (
+				0C4F29821F69723700BC5F1D /* backgroundbottomsheetapp.png */,
 				0C55D60C1F6802E500B4B213 /* AppDelegate.swift */,
 				0C55D60E1F6802E500B4B213 /* ViewController.swift */,
 				0C55D6101F6802E500B4B213 /* Main.storyboard */,
@@ -399,6 +402,7 @@
 				0C55D6201F68043E00B4B213 /* BottomSheetIconAndTextCell.xib in Resources */,
 				0C55D6231F68044200B4B213 /* whiteChevron.png in Resources */,
 				0C55D6241F68044200B4B213 /* goThere.png in Resources */,
+				0C4F29831F69723700BC5F1D /* backgroundbottomsheetapp.png in Resources */,
 				0C55D6251F68044200B4B213 /* accessTime.png in Resources */,
 				0C55D6141F6802E500B4B213 /* Assets.xcassets in Resources */,
 				0C55D6121F6802E500B4B213 /* Main.storyboard in Resources */,
