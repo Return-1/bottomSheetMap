@@ -1,5 +1,5 @@
 # bottomSheet for iOS
-Emulating the bottom sheet component found in google maps. You can run the BottomSheetApp target to try it out.
+Copying the bottom sheet component found in google maps to make an iOS component. You can run the BottomSheetApp target to try it out.
 
 ## Basic Setup
 
