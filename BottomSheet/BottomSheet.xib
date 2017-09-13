@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -13,23 +12,23 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BottomSheet" customModule="BottomSheet" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+        <view contentMode="scaleToFill" misplaced="YES" id="iN0-l3-epB" customClass="BottomSheet" customModule="BottomSheet" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="test.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="jyP-iX-9jC" userLabel="MainImage">
-                    <rect key="frame" x="0.0" y="117" width="375" height="150"/>
+                    <rect key="frame" x="0.0" y="50" width="600" height="150"/>
                     <gestureRecognizers/>
                     <constraints>
                         <constraint firstAttribute="height" constant="150" id="fb9-kx-iGT"/>
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fee-8Z-bxB" userLabel="ObscureFadeEffectView">
-                    <rect key="frame" x="0.0" y="117" width="375" height="150"/>
+                    <rect key="frame" x="0.0" y="50" width="600" height="150"/>
                     <color key="backgroundColor" red="0.18823529411764706" green="0.4799669385" blue="0.99896496530000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jYI-63-TWR" userLabel="DismissButton">
-                    <rect key="frame" x="0.0" y="122" width="35" height="35"/>
+                    <rect key="frame" x="0.0" y="55" width="35" height="35"/>
                     <color key="backgroundColor" red="0.90668823970000001" green="1" blue="0.39474102630000002" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="mcf-oK-4sX"/>
@@ -43,10 +42,10 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C2Z-TK-1Kr" userLabel="pullUpView">
-                    <rect key="frame" x="0.0" y="267" width="375" height="400"/>
+                    <rect key="frame" x="0.0" y="200" width="600" height="400"/>
                     <subviews>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aRL-1Q-kCZ">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </tableView>
                     </subviews>
@@ -64,7 +63,7 @@
                     </connections>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NKD-ki-zoR">
-                    <rect key="frame" x="290.5" y="244" width="75" height="75"/>
+                    <rect key="frame" x="465" y="132" width="120" height="120"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="NKD-ki-zoR" secondAttribute="height" id="Ygd-eJ-3D8"/>
                     </constraints>

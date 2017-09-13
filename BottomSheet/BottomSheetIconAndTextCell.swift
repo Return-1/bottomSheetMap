@@ -20,17 +20,17 @@ class BottomSheetIconAndTextCell : UITableViewCell{
         
         switch (type){
             case "email":
-                iconImgView?.image = UIImage(named: "mailOutline")
+                iconImgView?.image = UIImage(named: "mailOutline", in: Bundle.init(identifier: "com.malforked.BottomSheet"), compatibleWith: nil)
             case "phone":
-                iconImgView?.image = UIImage(named: "phoneIcon")
+                iconImgView?.image = UIImage(named: "phoneIcon", in: Bundle.init(identifier: "com.malforked.BottomSheet"), compatibleWith: nil)
             case "openHours":
-                iconImgView?.image = UIImage(named: "accessTime")
+                iconImgView?.image = UIImage(named: "accessTime", in: Bundle.init(identifier: "com.malforked.BottomSheet"), compatibleWith: nil)
             case "address":
-                iconImgView?.image = UIImage(named: "locationPinBottomSheet")
+                iconImgView?.image = UIImage(named: "locationPinBottomSheet", in: Bundle.init(identifier: "com.malforked.BottomSheet"), compatibleWith: nil)
             case "onduty":
-                iconImgView?.image = UIImage(named: "onduty")
+                iconImgView?.image = UIImage(named: "onduty", in: Bundle.init(identifier: "com.malforked.BottomSheet"), compatibleWith: nil)
             default:
-                iconImgView?.image = UIImage(named: "mailOutline")
+                iconImgView?.image = UIImage(named: "mailOutline", in: Bundle.init(identifier: "com.malforked.BottomSheet"), compatibleWith: nil)
         }
     }
     

@@ -66,6 +66,11 @@ public class BottomSheet : UIView, UIGestureRecognizerDelegate, UITableViewDeleg
         return false
     }
     
+    public static func getBottomSheetComponent() -> BottomSheet{
+        
+        return Bundle.init(for: self).loadNibNamed("BottomSheet", owner: self, options: nil)![0] as! BottomSheet
+    }
+    
     var userSetMaxHeightForPullupView:CGFloat = 0;
     public func setUp(parentController: UIViewController, tableDelegate : UITableViewDelegate? = nil, tableDataSource: UITableViewDataSource? = nil , maxBottomSheetHeight : CGFloat = 0 ){
     
@@ -160,21 +165,21 @@ public class BottomSheet : UIView, UIGestureRecognizerDelegate, UITableViewDeleg
         var desc = dict["description"];
         
         if(title != nil){
-            var cell = Bundle.main.loadNibNamed("TitleAndDescriptionPOICell", owner: self, options: nil)![0] as! TitleAndDescriptionPOICell
+            var cell = Bundle.init(for: BottomSheet.self).loadNibNamed("TitleAndDescriptionPOICell", owner: self, options: nil)![0] as! TitleAndDescriptionPOICell
             cell.setData(title: title!, description: desc)
             tempArr.append(cell)
         }
         
         var email = dict["email"]
         if(email != nil){
-            var cell = Bundle.main.loadNibNamed("BottomSheetIconAndTextCell" , owner: self, options: nil)![0] as! BottomSheetIconAndTextCell
+            var cell = Bundle.init(for: BottomSheet.self).loadNibNamed("BottomSheetIconAndTextCell" , owner: self, options: nil)![0] as! BottomSheetIconAndTextCell
             cell.setData(title: email!, type: "email")
             tempArr.append(cell)
         }
         
         var phone = dict["phone"]
         if(phone != nil){
-            var cell = Bundle.main.loadNibNamed("BottomSheetIconAndTextCell" , owner: self, options: nil)![0] as! BottomSheetIconAndTextCell
+            var cell = Bundle.init(for: BottomSheet.self).loadNibNamed("BottomSheetIconAndTextCell" , owner: self, options: nil)![0] as! BottomSheetIconAndTextCell
             cell.setData(title: phone!, type: "phone")
             tempArr.append(cell)
             //this is to be a placeholder
@@ -182,24 +187,24 @@ public class BottomSheet : UIView, UIGestureRecognizerDelegate, UITableViewDeleg
         
         var openHours = dict["openHours"]
         if(openHours != nil){
-            var cell = Bundle.main.loadNibNamed("BottomSheetIconAndTextCell" , owner: self, options: nil)![0] as! BottomSheetIconAndTextCell
+            var cell = Bundle.init(for: BottomSheet.self).loadNibNamed("BottomSheetIconAndTextCell" , owner: self, options: nil)![0] as! BottomSheetIconAndTextCell
             cell.setData(title: openHours!, type: "openHours")
             tempArr.append(cell)
         }
         
         var address = dict["address"]
         if(address != nil){
-            var cell = Bundle.main.loadNibNamed("BottomSheetIconAndTextCell" , owner: self, options: nil)![0] as! BottomSheetIconAndTextCell
+            var cell = Bundle.init(for: BottomSheet.self).loadNibNamed("BottomSheetIconAndTextCell" , owner: self, options: nil)![0] as! BottomSheetIconAndTextCell
             cell.setData(title: address!, type: "address")
             tempArr.append(cell)
         }
         
-        var openDays = dict["openDays"]
-        if(openDays != nil){
-            var cell = Bundle.main.loadNibNamed("BSDaysOpenCell" , owner: self, options: nil)![0] as! BSDaysOpenCell
-            cell.setData(daysOpen: openDays!)
-            tempArr.append(cell)
-        }
+//        var openDays = dict["openDays"]
+//        if(openDays != nil){
+//            var cell = Bundle.init(for: BottomSheet.self).loadNibNamed("BSDaysOpenCell" , owner: self, options: nil)![0] as! BSDaysOpenCell
+//            cell.setData(daysOpen: openDays!)
+//            tempArr.append(cell)
+//        }
         
         return tempArr;
         
@@ -476,8 +481,8 @@ public class BottomSheet : UIView, UIGestureRecognizerDelegate, UITableViewDeleg
     @IBOutlet weak var mainImagePullUpHeightCSTR: NSLayoutConstraint!
     @IBOutlet weak var mainImagePullUpBottomCSTR: NSLayoutConstraint!
     @IBOutlet weak var obscuringFadeEffectView : UIView!
-    var defaultImageForLocation = UIImage(named: "defaultImage.jpeg");
-    
+    var defaultImageForLocation = UIImage(named: "defaultImage.jpeg", in: Bundle.init(identifier: "com.malforked.BottomSheet"), compatibleWith: nil)
+
     func pullUpProgress() -> CGFloat{
         
 //        print("constant bottom pullupview \(pullUpViewBottomCSTR!.constant)")

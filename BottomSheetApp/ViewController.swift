@@ -19,19 +19,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         var customData = [String:String]()
         customData["email"] = "testemail@a.com"
-        customData["address"] = "Sicklyton"
+        customData["address"] = "Wherever lane"
         customData["openHours"] = "12:34 - 15:22"
         customData["title"] = "Getwell Pharmacy"
-        customData["description"] = "Just buy whatever pharmaceuticals you need here. Any dosage of any kind of medicine will do, something is bound to work i guesse of any kind of medicine will do, something is bound to work i guee of any kind of medicine will do, something is bound to work i guee of any kind of medicine will do, something is bound to work i guee of any kind of medicine will do, something is bound to work i guee of any kind of medicine will do, something is bound to work i guee of any kind of medicine will do, something is bound to work i guee of any kind of medicine will do, something is bound to work i guee of any kind of medicine will do, something is bound to work i guee of any kind of medicine will do, something is bound to work i guee of any kind of medicine will do, something is bound to work i guee of any kind of medicine will do, something is bound to work i guee of any kind of medicine will do, something is bound to work i guee of any kind of medicine will do, something is bound to work i guee of any kind of medicine will do, something is bound to work i guee of any kind of medicine will do, something is bound to work i gue";
-        customData["email"] = "testemail@a.com"
+        customData["description"] = "All of our products guarantee ultimate satisfaction and wellness improving your daily health by a factor of 10000% and thats an actual number derived from research we didnt come up with it we promise.";
         customData["phone"] = "+4412345223"
         
         //////////////
         //SETTING UP THE BOTTOM SHEET
         //////////////
-        
-        bottomSheet = Bundle.main.loadNibNamed("BottomSheet", owner: self, options: nil)![0] as! BottomSheet
-        self.view.addSubview(bottomSheet!)
+        BottomSheet.getBottomSheetComponent();
         
         //METHOD A) Using Custom Data
         bottomSheet!.setUp(parentController: self)
