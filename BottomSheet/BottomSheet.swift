@@ -224,7 +224,7 @@ public class BottomSheet : UIView, UIGestureRecognizerDelegate, UITableViewDeleg
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         
         if(gestureRecognizer.view == pullupView){
-            if(getPullUpViewMode() == "SUMMARY"){
+            if(getMode() == "SUMMARY"){
                 return true;
             }else{
                 return false;
@@ -437,7 +437,7 @@ public class BottomSheet : UIView, UIGestureRecognizerDelegate, UITableViewDeleg
         
         //if someone has half dragged this we dont want tapping on it to show full mode
         //because they may be tapping to select an item
-        if(getPullUpViewMode() == "FULL"){
+        if(getMode() == "FULL"){
             return;
         }
         
@@ -459,7 +459,7 @@ public class BottomSheet : UIView, UIGestureRecognizerDelegate, UITableViewDeleg
         }
     }
     
-    public func getPullUpViewMode() -> String{
+    public func getMode() -> String{
         if(pullUpViewBottomCSTR!.constant == 0){
             return "FULL";
         }

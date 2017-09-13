@@ -25,27 +25,31 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         customData["description"] = "All of our products guarantee ultimate satisfaction and wellness improving your daily health by a factor of 10000% and thats an actual number derived from research we didnt come up with it we promise.";
         customData["phone"] = "+4412345223"
         
+        //if you want the navigation button to work, also provide longitute and latitude
+        customData["longitude"] = "48.8722344"
+        customData["latitude"] = "2.7758079"
+        
         //////////////
         //SETTING UP THE BOTTOM SHEET
         //////////////
-        BottomSheet.getBottomSheetComponent();
+        var bottomSheet = BottomSheet.getBottomSheetComponent();
         
         //METHOD A) Using Custom Data
-        bottomSheet!.setUp(parentController: self)
-        bottomSheet!.setData(data: customData)
+        bottomSheet.setUp(parentController: self)
+        bottomSheet.setData(data: customData)
         
         //METHOD B) For extra customization. Using your own table and cells
 //        bottomSheet!.setUp(parentController: self, tableDelegate: self, tableDataSource: self, maxBottomSheetHeight: 0)
         
         //Show bottom sheet in summary mode.
-        bottomSheet!.pullUpViewSetMode_SUMMARY()
+        bottomSheet.pullUpViewSetMode_SUMMARY()
         
         
         //////////
         //ADDING CALLBACKS
         ////////
         
-        bottomSheet!.animFuncForParent = self.doSomething
+        bottomSheet.animFuncForParent = self.doSomething
         
     }
     
