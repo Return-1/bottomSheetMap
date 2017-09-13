@@ -1,7 +1,7 @@
 # bottomSheet for iOS
 Copying the bottom sheet component found in google maps to make an iOS component. You can run the BottomSheetApp target to try it out.
 
-![alt text](https://raw.githubusercontent.com/Return-1/bottomSheetMap/master/recordingBottomSheet1.gif?s=200)
+<img src="https://raw.githubusercontent.com/Return-1/bottomSheetMap/master/recordingBottomSheet1.gif" width="48">
 
 ## Basic Setup
 
