@@ -27,7 +27,7 @@ class BottomSheetIconAndTextCell : UITableViewCell{
                 iconImgView?.image = UIImage(named: "accessTime", in: Bundle.init(identifier: "com.malforked.BottomSheet"), compatibleWith: nil)
             case "address":
                 iconImgView?.image = UIImage(named: "locationPinBottomSheet", in: Bundle.init(identifier: "com.malforked.BottomSheet"), compatibleWith: nil)
-            case "onduty":
+            case "on_duty":
                 iconImgView?.image = UIImage(named: "onduty", in: Bundle.init(identifier: "com.malforked.BottomSheet"), compatibleWith: nil)
             default:
                 iconImgView?.image = UIImage(named: "mailOutline", in: Bundle.init(identifier: "com.malforked.BottomSheet"), compatibleWith: nil)

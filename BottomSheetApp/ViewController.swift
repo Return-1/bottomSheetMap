@@ -22,17 +22,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         customData["address"] = "Wherever lane"
         customData["openHours"] = "12:34 - 15:22"
         customData["title"] = "Getwell Pharmacy"
-        customData["description"] = "All of our products guarantee ultimate satisfaction and wellness improving your daily health by a factor of 10000% and thats an actual number derived from research we didnt come up with it we promise.";
         customData["phone"] = "+4412345223"
+        customData["description"] = "All of our products guarantee ultimate satisfaction and wellness improving your daily health by a factor of 10000% and thats an actual number derived from research we didnt come up with it we promise.All of our products guarantee ultimate satisfaction and wellness improving your daily health by a factor of 10000% and thats an actual number derived from research we didnt come up with it we promise.All of our products guarantee ultimate satisfaction and wellness improving your daily health by a factor of 10000% and thats an actual number derived from research we didnt come up with it we promise.All of our products guarantee ultimate satisfaction and wellness improving your daily health by a factor of 10000% and thats an actual number derived from research we didnt come up with it we promise.";
         
         //if you want the navigation button to work, also provide longitute and latitude
         customData["longitude"] = "48.8722344"
         customData["latitude"] = "2.7758079"
+        customData["on_duty"] = "2.7758079"
         
         //////////////
         //SETTING UP THE BOTTOM SHEET
         //////////////
         var bottomSheet = BottomSheet.getBottomSheetComponent();
+        self.view.addSubview(bottomSheet);
         
         //METHOD A) Using Custom Data
         bottomSheet.setUp(parentController: self)

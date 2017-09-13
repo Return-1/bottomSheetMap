@@ -199,6 +199,13 @@ public class BottomSheet : UIView, UIGestureRecognizerDelegate, UITableViewDeleg
             tempArr.append(cell)
         }
         
+        var on_duty = dict["on_duty"]
+        if(on_duty != nil){
+            var cell = Bundle.init(for: BottomSheet.self).loadNibNamed("BottomSheetIconAndTextCell" , owner: self, options: nil)![0] as! BottomSheetIconAndTextCell
+            cell.setData(title: "Open tonight", type: "on_duty")
+            tempArr.append(cell)
+        }
+        
 //        var openDays = dict["openDays"]
 //        if(openDays != nil){
 //            var cell = Bundle.init(for: BottomSheet.self).loadNibNamed("BSDaysOpenCell" , owner: self, options: nil)![0] as! BSDaysOpenCell
