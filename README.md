@@ -1,5 +1,5 @@
 # BottomSheet for iOS
-Approximating the bottom sheet component found in google maps to for iOS. You can run the BottomSheetApp target to try it out.
+BottomSheetMap is an approximating the bottom sheet component found in google maps to for iOS. You can run the BottomSheetApp target to try it out.
 
 <img src="https://raw.githubusercontent.com/Return-1/bottomSheetMap/master/recordingBottomSheet1.gif" width="260">
 
