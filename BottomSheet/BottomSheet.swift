@@ -9,27 +9,34 @@
 import UIKit
 
 protocol BottomSheetViewDelegate {
-    func navigateButtonPressed();
-    //
+    func bsModeWillSetTo(mode: BottomSheetMode);
+    func bsModeDidSetTo(mode: BottomSheetMode);
+}
+
+public enum BottomSheetMode{
+    case HIDDEN;
+    case FULL;
+    case SUMMARY;
+    case OTHER;
 }
 
 public class BottomSheet : UIView, UIGestureRecognizerDelegate, UITableViewDelegate, UITableViewDataSource  {
     
     //parameters
-    private var pullupHeightForModeSUMMARY = CGFloat(80); //make this % of parentview
+    var pullupHeightForModeSUMMARY = CGFloat(80); //make this % of parentview
+    var hideAnimationDuration = 0.3;
+    var showSummaryAnimationDuration = 0.3;
+    var showFullAnimationDuration = 0.3;
     //parameters
-    
-    @IBOutlet weak var dataTable : UITableView!
     
     @IBAction func dismiss(sender: UIButton){
         self.pullUpViewSetMode_SUMMARY()
     }
     
     var parentController : UIViewController?;
-//    var delegate : BottomSheetViewDelegate?;
+    var delegate : BottomSheetViewDelegate?;
     
     public var animFuncForParent : (() -> Void)?
-    
     
     @IBOutlet weak var dismissButton : UIButton?
     @IBOutlet weak var pullupView : UIView!
@@ -42,7 +49,8 @@ public class BottomSheet : UIView, UIGestureRecognizerDelegate, UITableViewDeleg
         
         dataTable.estimatedRowHeight = 100;
         dataTable.tableFooterView = UIView();
-        
+
+        //performance issues for those two below
         //ADD SHADOW TO PULLUPVIEW
 //        pullupView.layer.shadowColor = UIColor.black.cgColor
 //        pullupView.layer.shadowOffset = CGSize(width: 0, height: -1.2)
@@ -67,16 +75,15 @@ public class BottomSheet : UIView, UIGestureRecognizerDelegate, UITableViewDeleg
     }
     
     public static func getBottomSheetComponent() -> BottomSheet{
-        
         return Bundle.init(for: self).loadNibNamed("BottomSheet", owner: self, options: nil)![0] as! BottomSheet
     }
     
     var userSetMaxHeightForPullupView:CGFloat = 0;
-    public func setUp(parentController: UIViewController, tableDelegate : UITableViewDelegate? = nil, tableDataSource: UITableViewDataSource? = nil , maxBottomSheetHeight : CGFloat = 0 ){
+    public func setUp(parentController: UIViewController,_ tableDelegate : UITableViewDelegate? = nil,_ tableDataSource: UITableViewDataSource? = nil , _ maxBottomSheetHeight : CGFloat = 0 ){
     
         self.parentController = parentController;
         self.mainImagePullUp?.image = self.defaultImageForLocation;
-//        self.delegate = parentController as? BottomSheetViewDelegate; //is there a case where the delegate isnt the same as the parent ctlr?
+        self.delegate = parentController as? BottomSheetViewDelegate; //is there a case where the delegate isnt the same as the parent ctlr?
         
         //view constraints
         self.translatesAutoresizingMaskIntoConstraints = false
@@ -112,7 +119,6 @@ public class BottomSheet : UIView, UIGestureRecognizerDelegate, UITableViewDeleg
         }
     }
     
-//    var poiFieldsTupleArray : [(fieldType: String, fieldValue:String)]?
     var userData = [String:String]()
     
     public func setData(data: [String:String]){
@@ -128,7 +134,6 @@ public class BottomSheet : UIView, UIGestureRecognizerDelegate, UITableViewDeleg
             }
         }
         
-        
         //if the height is set below 250 by the user ( which i dont think makes much sense TODO re-examine
         //then we just make it so that the maxheight is to whatever it needs to be so that the image + that height fill upp the view
         //otherwise, we set it to maxheight
@@ -138,7 +143,18 @@ public class BottomSheet : UIView, UIGestureRecognizerDelegate, UITableViewDeleg
             var heightOfNavBar = self.parentController?.navigationController?.navigationBar.frame.height ?? 0
             let statusBarHeight = UIApplication.shared.statusBarFrame.height
             
-            pullUpViewHeightCSTR.constant = self.parentController!.view.frame.height - mainImagePullUpHeightCSTR.constant - statusBarHeight - heightOfNavBar
+            
+//            pullUpViewHeightCSTR.constant = self.parentController!.view.frame.height - mainImagePullUpHeightCSTR.constant - statusBarHeight - heightOfNavBar
+            
+            var k = self.parentController?.navigationController
+            if(k == nil){
+                pullUpViewHeightCSTR.constant = self.parentController!.view.frame.height - mainImagePullUpHeightCSTR.constant - statusBarHeight
+            }else{
+                pullUpViewHeightCSTR.constant = self.parentController!.view.frame.height - mainImagePullUpHeightCSTR.constant
+            }
+            
+            
+            
         }else{
             pullUpViewHeightCSTR.constant = self.userSetMaxHeightForPullupView;
         }
@@ -148,13 +164,43 @@ public class BottomSheet : UIView, UIGestureRecognizerDelegate, UITableViewDeleg
         //FOR THAT REASON, IF THE CONTENT ISNT ENOUGH TO FILL 2/3 OF THE PARENT VIEW, WE CONSTRAIN IT TO
         //WHAT IT CAN FILL AND DONT ALLOW FOR IT TO GO HIGHER THAN THAT.
         var tableContentSize = self.dataTable.contentSize.height;
-        var twoThirdsOfParentHeight = self.parentController!.view.frame.height*CGFloat(0.50)
-        
+        var twoThirdsOfParentHeight = self.parentController!.view.frame.height*CGFloat(0.60)
+        print(tableContentSize)
+        print(twoThirdsOfParentHeight)
         if(tableContentSize < twoThirdsOfParentHeight){
             pullUpViewHeightCSTR.constant = tableContentSize;
         }
-//
+        
+        self.pullUpViewBottomCSTR!.constant = -pullUpViewHeightCSTR.constant
     }
+    
+    func setImageHidingOverlayColor(color: UIColor){
+        obscuringFadeEffectView.backgroundColor = color;
+    }
+    
+    //This is needed for the gesture to be captured while table scrolling
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true;
+    }
+    
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        
+        if(gestureRecognizer.view == pullupView){
+            if(getMode() == .SUMMARY){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        
+        return true;
+    }
+    
+    ///////////
+    //MARK: - DEFAULT TABLE METHODS
+    ///////////
+    
+    @IBOutlet weak var dataTable : UITableView!
     
     var displayFields = [UITableViewCell]()
     func parseDefaultDataDict(dict : [String:String]) -> [UITableViewCell]{
@@ -206,51 +252,22 @@ public class BottomSheet : UIView, UIGestureRecognizerDelegate, UITableViewDeleg
             tempArr.append(cell)
         }
         
-//        var openDays = dict["openDays"]
-//        if(openDays != nil){
-//            var cell = Bundle.init(for: BottomSheet.self).loadNibNamed("BSDaysOpenCell" , owner: self, options: nil)![0] as! BSDaysOpenCell
-//            cell.setData(daysOpen: openDays!)
-//            tempArr.append(cell)
-//        }
+        //        var openDays = dict["openDays"]
+        //        if(openDays != nil){
+        //            var cell = Bundle.init(for: BottomSheet.self).loadNibNamed("BSDaysOpenCell" , owner: self, options: nil)![0] as! BSDaysOpenCell
+        //            cell.setData(daysOpen: openDays!)
+        //            tempArr.append(cell)
+        //        }
         
         return tempArr;
         
     }
-    
-    func setImageHidingOverlayColor(color: UIColor){
-        obscuringFadeEffectView.backgroundColor = color;
-    }
-
-
-    
-    //This is needed for the gesture to be captured while table scrolling
-    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true;
-    }
-    
-    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        
-        if(gestureRecognizer.view == pullupView){
-            if(getMode() == "SUMMARY"){
-                return true;
-            }else{
-                return false;
-            }
-        }
-        
-        return true;
-    }
-    
-    ///////////
-    //MARK: - DEFAULT TABLE METHODS
-    ///////////
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return displayFields.count;
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         return displayFields[indexPath.row];
     }
     
@@ -407,27 +424,29 @@ public class BottomSheet : UIView, UIGestureRecognizerDelegate, UITableViewDeleg
     
     private var isPullUpViewShowing = true;
     
-    var timeToHide = 0.3;
+    
     //shows only on the bottom in summary mode
     public func pullUpViewSetMode_SUMMARY(){
         
         self.returnToNormalSizeNavigateButton()
+        self.delegate?.bsModeWillSetTo(mode: .SUMMARY)
         
-        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: self.showSummaryAnimationDuration, delay: 0.0, options: .curveEaseOut, animations: {
             self.pullUpViewBottomCSTR!.constant = -self.pullUpViewHeightCSTR.constant + self.pullupHeightForModeSUMMARY
             self.mainImagePullUpBottomCSTR.constant = -self.mainImagePullUp!.frame.height
             self.dataTable.isScrollEnabled = false;
             self.superview?.layoutIfNeeded()
         }) { (completed) in
-            //
+            self.delegate?.bsModeDidSetTo(mode: .SUMMARY)
         }
     }
     
     public func pullUpViewSetMode_HIDDEN(){
         
         shrinkOutNavigateButton()
+        self.delegate?.bsModeWillSetTo(mode: .HIDDEN)
         
-        UIView.animate(withDuration: timeToHide, delay: 0.0, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: self.hideAnimationDuration, delay: 0.0, options: .curveEaseOut, animations: {
             self.pullUpViewBottomCSTR!.constant = -self.pullUpViewHeightCSTR.constant
             self.mainImagePullUpBottomCSTR.constant = -self.mainImagePullUp!.frame.height
             self.animFuncForParent!()
@@ -435,7 +454,7 @@ public class BottomSheet : UIView, UIGestureRecognizerDelegate, UITableViewDeleg
             self.dataTable.isScrollEnabled = false;
             
         }) { (completed) in
-            //
+            self.delegate?.bsModeDidSetTo(mode: .HIDDEN)
         }
         
     }
@@ -444,15 +463,17 @@ public class BottomSheet : UIView, UIGestureRecognizerDelegate, UITableViewDeleg
         
         //if someone has half dragged this we dont want tapping on it to show full mode
         //because they may be tapping to select an item
-        if(getMode() == "FULL"){
+        if(getMode() == .FULL){
             return;
         }
+        
+        self.delegate?.bsModeWillSetTo(mode: .FULL)
         
         self.dataTable.isScrollEnabled = true;
         
 //        self.layoutIfNeeded()
 //        self.superview?.layoutIfNeeded()
-        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: self.showFullAnimationDuration, delay: 0.0, options: .curveEaseOut, animations: {
             
             self.pullUpViewBottomCSTR!.constant = 0
             self.mainImagePullUpBottomCSTR.constant = 0
@@ -462,27 +483,29 @@ public class BottomSheet : UIView, UIGestureRecognizerDelegate, UITableViewDeleg
             
             self.superview?.layoutIfNeeded()
         }) { (completed) in
-            
+            self.delegate?.bsModeDidSetTo(mode: .FULL)
         }
     }
     
-    public func getMode() -> String{
+    public func getMode() -> BottomSheetMode{
         if(pullUpViewBottomCSTR!.constant == 0){
-            return "FULL";
+            return .FULL;
         }
         
         if(pullUpViewBottomCSTR!.constant == -self.pullUpViewHeightCSTR.constant + self.pullupHeightForModeSUMMARY){
-            return "SUMMARY";
+            return .SUMMARY;
         }
         
         if(pullUpViewBottomCSTR!.constant == -self.pullUpViewHeightCSTR.constant){
-            return "HIDDEN";
+            return .HIDDEN;
         }
         
-        return "OTHER";
+        return .OTHER;
     }
     
+    //////////
     //IMAGE RELATED STUFF
+    //////////
     
     @IBOutlet weak var mainImagePullUp: UIImageView?
     @IBOutlet weak var mainImagePullUpHeightCSTR: NSLayoutConstraint!
@@ -492,7 +515,6 @@ public class BottomSheet : UIView, UIGestureRecognizerDelegate, UITableViewDeleg
 
     func pullUpProgress() -> CGFloat{
         
-//        print("constant bottom pullupview \(pullUpViewBottomCSTR!.constant)")
         var currentYPos = pullUpViewBottomCSTR!.constant +  pullUpViewHeightCSTR.constant - pullupHeightForModeSUMMARY
         var totalArea = (pullUpViewHeightCSTR.constant - pullupHeightForModeSUMMARY)
         
@@ -502,15 +524,15 @@ public class BottomSheet : UIView, UIGestureRecognizerDelegate, UITableViewDeleg
     private func parallaxImage(){
         
         mainImagePullUpBottomCSTR.constant = mainImagePullUp!.frame.height*pullUpProgress() - mainImagePullUp!.frame.height;
-//        print("image bottom CSTR y: \(mainImagePullUpBottomCSTR.constant)")
         
         var calculatedAlpha = (1 - pullUpProgress()) + 0.10
         obscuringFadeEffectView.alpha = calculatedAlpha;
         dismissButton?.alpha = 1 - calculatedAlpha;
     }
     
-    //OTHER
-    
+    ///////////
+    //MARK: - OTHER
+    //////////
     @IBOutlet weak var navigateCarButton : UIButton?
     
     @IBAction func navigateCarButtonPressed(sender: UIButton){
@@ -539,7 +561,7 @@ public class BottomSheet : UIView, UIGestureRecognizerDelegate, UITableViewDeleg
     
     func shrinkOutNavigateButton(){
         
-        UIView.animate(withDuration: timeToHide - 0.05, animations: {
+        UIView.animate(withDuration: hideAnimationDuration, animations: {
             self.navigateCarButton?.transform = CGAffineTransform(scaleX: 0.001, y: 0.001)
         }) { (finished) in
             
@@ -548,14 +570,14 @@ public class BottomSheet : UIView, UIGestureRecognizerDelegate, UITableViewDeleg
     
     func returnToNormalSizeNavigateButton(){
         
-        UIView.animate(withDuration: timeToHide, delay: timeToHide, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: showSummaryAnimationDuration, delay: showSummaryAnimationDuration, options: .curveEaseInOut, animations: {
             self.navigateCarButton?.transform = CGAffineTransform.identity
         }) { (done) in
             
         }
     }
     
-    func getImageForMainImage(imageUrl: String, completion: @escaping (UIImage) -> Void){
+    private func getImageForMainImage(imageUrl: String, completion: @escaping (UIImage) -> Void){
         
         var retrievedImage : UIImage?
         
@@ -598,3 +620,10 @@ public class BottomSheet : UIView, UIGestureRecognizerDelegate, UITableViewDeleg
     }
     
 }
+
+//////
+//The difference between animating constraints and updating them by hand is a thing thats troubled me in this library.
+//You can "hook" in into the animation using
+//https://stackoverflow.com/questions/22582192/ios-observing-change-in-frame-of-a-uiview-during-animation
+//TOSTUDY later
+

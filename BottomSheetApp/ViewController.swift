@@ -10,7 +10,7 @@ import UIKit
 import BottomSheet
 
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, BottomSheetViewDelegate {
 
     var bottomSheet: BottomSheet?
     
@@ -23,7 +23,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         customData["openHours"] = "12:34 - 15:22"
         customData["title"] = "Getwell Pharmacy"
         customData["phone"] = "+4412345223"
-        customData["description"] = "All of our products guarantee ultimate satisfaction and wellness improving your daily health by a factor of 10000% and thats an actual number derived from research we didnt come up with it we promise.All of our products guarantee ultimate satisfaction and wellness improving your daily health by a factor of 10000% and thats an actual number derived from research we didnt come up with it we promise.All of our products guarantee ultimate satisfaction and wellness improving your daily health by a factor of 10000% and thats an actual number derived from research we didnt come up with it we promise.All of our products guarantee ultimate satisfaction and wellness improving your daily health by a factor of 10000% and thats an actual number derived from research we didnt come up with it we promise.";
+        customData["description"] = "All of our products guarantee ultimate satisfaction and wellness improving your daily health by a factor of 10000% and thats an actual number asd as asd asd as asda das das das dads ena ena ena ena ena ena ena ena ena ena ena dio dio dio dio dio doi dio dio dio dio dio dio dio dio dio dio dio";
         
         //if you want the navigation button to work, also provide longitute and latitude
         customData["longitude"] = "48.8722344"
@@ -38,7 +38,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         //METHOD A) Using Custom Data
         bottomSheet.setUp(parentController: self)
+        
         bottomSheet.setData(data: customData)
+        
+        
+        
         
         //METHOD B) For extra customization. Using your own table and cells
 //        bottomSheet!.setUp(parentController: self, tableDelegate: self, tableDataSource: self, maxBottomSheetHeight: 0)
@@ -47,11 +51,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         bottomSheet.pullUpViewSetMode_SUMMARY()
         
         
+        
         //////////
         //ADDING CALLBACKS
         ////////
-        
-        bottomSheet.animFuncForParent = self.doSomething
         
     }
     
@@ -71,15 +74,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.textLabel?.text = "Custom cell"
         return cell;
     }
+   
     
+    /////
+    //Delegate methods
+    ////
+    
+    func bsModeDidSetTo(mode: BottomSheetMode) {
+        print(mode)
+    }
+    
+    func bsModeWillSetTo(mode: BottomSheetMode) {
+        print(mode)
+    }
+    
+    func delay(_ delay:Double, closure:@escaping ()->()) {
+        DispatchQueue.main.asyncAfter(
+            deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
+    }
     
     ////
     //OTHER
     ///
-    
-    func doSomething(){
-        print("za")
-    }
 
 }
 
