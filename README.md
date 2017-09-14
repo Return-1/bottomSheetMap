@@ -1,5 +1,5 @@
-# bottomSheet for iOS
-Copying the bottom sheet component found in google maps to make an iOS component. You can run the BottomSheetApp target to try it out.
+# BottomSheet for iOS
+Approximating the bottom sheet component found in google maps to for iOS. You can run the BottomSheetApp target to try it out.
 
 <img src="https://raw.githubusercontent.com/Return-1/bottomSheetMap/master/recordingBottomSheet1.gif" width="260">
 
@@ -9,7 +9,7 @@ This section describes how to quickly setup the BottomSheet component.
 
 ### Step 1.
 
-Load the component 
+Load the component and add it to your view
 ```swift
 var bottomSheet = BottomSheet.getBottomSheetComponent();
 //add to subview
@@ -17,7 +17,7 @@ self.view.addSubview(bottomSheet);
 ```
 ### Step 2 Method A
 
-Using the default display views. Provide a dictionary as described below and let BottomSheet take care of the rest.
+The component comes with a few default display options. Provide your data as described below and let BottomSheet take care of the rest.
 
 ```swift
         var customData = [String:String]()
@@ -39,7 +39,7 @@ Using the default display views. Provide a dictionary as described below and let
  
  ### Step 2 Method B
 
-You can provide your own table methods if you would rather use your own custom cells.
+You can provide your own table methods if you would rather use your own custom cells. To do that ,specify the delegate and data source when initializing the component.
 
 ```swift
     bottomSheet!.setUp(parentController: self, tableDelegate: self, tableDataSource: self, maxBottomSheetHeight: 0)
@@ -67,7 +67,7 @@ bottomSheet!.pullUpViewSetMode_SUMMARY()
 
 ## Advanced
 
-### Bottom Sheet Modes
+### Bottom Sheet Modes and Delegate
 
 The bottom Sheet can be at any of four modes at any given time which you can get by using:
 ```swift
@@ -89,6 +89,10 @@ bottomSheet!.pullUpViewSetMode_HIDDEN()
 ```
 **OTHER**: This covers all other modes like when in transit
 
+If you want to be notified of events you can implement the BottomSheetViewDelegate methods on your parent object and be notified for:
+
+**modeWillSetTo(mode: BottomSheetMode);
+modeDidSetTo(mode: BottomSheetMode);**
 
 ### Customization
 
@@ -105,6 +109,15 @@ If left on automatic, upon expanding the BottomSheet to it's full mode, it will 
         bottomSheet!.setUp(parentController: self, tableDelegate: nil, tableDataSource: nil, maxBottomSheetHeight: 0)
 ```
 The maxBottomSheetHeight property sets a limit to that in case you would preffer the bottomSheet would not go further up than a specific height.
+
+#### Other customizable properties
+
+You can change the properties below without worrying something will break. I think.
+
+pullupHeightForModeSUMMARY = CGFloat(80);
+hideAnimationDuration = 0.3;
+showSummaryAnimationDuration = 0.3;
+showFullAnimationDuration = 0.3;
 
 ## Outro
 
