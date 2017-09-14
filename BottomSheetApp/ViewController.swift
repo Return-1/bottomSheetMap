@@ -44,12 +44,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         
         
+        
         //METHOD B) For extra customization. Using your own table and cells
 //        bottomSheet!.setUp(parentController: self, tableDelegate: self, tableDataSource: self, maxBottomSheetHeight: 0)
         
         //Show bottom sheet in summary mode.
-        bottomSheet.pullUpViewSetMode_SUMMARY()
-        
+        delay(1){
+            bottomSheet.pullUpViewSetMode_SUMMARY()
+        }
         
         
         //////////
