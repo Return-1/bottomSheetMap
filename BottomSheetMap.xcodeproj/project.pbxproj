@@ -43,8 +43,8 @@
 		0C55D5F91F6800FE00B4B213 /* BSDaysOpenCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C55D5ED1F6800FE00B4B213 /* BSDaysOpenCell.xib */; };
 		0C55D5FE1F68010C00B4B213 /* BottomSheetMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C55D5FA1F68010C00B4B213 /* BottomSheetMap.swift */; };
 		0C55D5FF1F68010C00B4B213 /* BottomSheetMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C55D5FA1F68010C00B4B213 /* BottomSheetMap.swift */; };
-		0C55D6001F68010C00B4B213 /* BottomSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C55D5FB1F68010C00B4B213 /* BottomSheet.xib */; };
-		0C55D6011F68010C00B4B213 /* BottomSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C55D5FB1F68010C00B4B213 /* BottomSheet.xib */; };
+		0C55D6001F68010C00B4B213 /* BottomSheetMap.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C55D5FB1F68010C00B4B213 /* BottomSheetMap.xib */; };
+		0C55D6011F68010C00B4B213 /* BottomSheetMap.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C55D5FB1F68010C00B4B213 /* BottomSheetMap.xib */; };
 		0C55D60D1F6802E500B4B213 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C55D60C1F6802E500B4B213 /* AppDelegate.swift */; };
 		0C55D60F1F6802E500B4B213 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C55D60E1F6802E500B4B213 /* ViewController.swift */; };
 		0C55D6121F6802E500B4B213 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C55D6101F6802E500B4B213 /* Main.storyboard */; };
@@ -65,7 +65,7 @@
 		0C55D6281F68044200B4B213 /* phoneIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C55D5D41F6800E100B4B213 /* phoneIcon.png */; };
 		0C55D6291F68044200B4B213 /* locationPinBottomSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C55D5D51F6800E100B4B213 /* locationPinBottomSheet.png */; };
 		0C55D62A1F68044200B4B213 /* onduty.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C55D5D61F6800E100B4B213 /* onduty.png */; };
-		0C55D62B1F68044D00B4B213 /* BottomSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C55D5FB1F68010C00B4B213 /* BottomSheet.xib */; };
+		0C55D62B1F68044D00B4B213 /* BottomSheetMap.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C55D5FB1F68010C00B4B213 /* BottomSheetMap.xib */; };
 		0C55D62D1F6805B700B4B213 /* defaultImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 0C55D62C1F6805B700B4B213 /* defaultImage.jpeg */; };
 		0C55D62E1F6805B700B4B213 /* defaultImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 0C55D62C1F6805B700B4B213 /* defaultImage.jpeg */; };
 		0C55D62F1F6805B700B4B213 /* defaultImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 0C55D62C1F6805B700B4B213 /* defaultImage.jpeg */; };
@@ -105,7 +105,7 @@
 		0C55D5EC1F6800FE00B4B213 /* BSDaysOpenCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSDaysOpenCell.swift; sourceTree = "<group>"; };
 		0C55D5ED1F6800FE00B4B213 /* BSDaysOpenCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BSDaysOpenCell.xib; sourceTree = "<group>"; };
 		0C55D5FA1F68010C00B4B213 /* BottomSheetMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomSheetMap.swift; sourceTree = "<group>"; };
-		0C55D5FB1F68010C00B4B213 /* BottomSheet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BottomSheet.xib; sourceTree = "<group>"; };
+		0C55D5FB1F68010C00B4B213 /* BottomSheetMap.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BottomSheetMap.xib; sourceTree = "<group>"; };
 		0C55D60A1F6802E500B4B213 /* BottomSheetApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BottomSheetApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C55D60C1F6802E500B4B213 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C55D60E1F6802E500B4B213 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -146,9 +146,9 @@
 			isa = PBXGroup;
 			children = (
 				0C55D5C71F67FF7C00B4B213 /* BottomSheet.podspec */,
-				0C55D5AF1F67FEF200B4B213 /* BottomSheet */,
-				0C55D5BA1F67FEF200B4B213 /* BottomSheetTests */,
-				0C55D60B1F6802E500B4B213 /* BottomSheetApp */,
+				0C55D5AF1F67FEF200B4B213 /* BottomSheetMap */,
+				0C55D5BA1F67FEF200B4B213 /* BottomSheetMapTests */,
+				0C55D60B1F6802E500B4B213 /* BottomSheetMapApp */,
 				0C55D5AE1F67FEF200B4B213 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -163,24 +163,26 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0C55D5AF1F67FEF200B4B213 /* BottomSheet */ = {
+		0C55D5AF1F67FEF200B4B213 /* BottomSheetMap */ = {
 			isa = PBXGroup;
 			children = (
 				0C55D5CA1F68007100B4B213 /* UIComponents */,
 				0C55D5FA1F68010C00B4B213 /* BottomSheetMap.swift */,
-				0C55D5FB1F68010C00B4B213 /* BottomSheet.xib */,
+				0C55D5FB1F68010C00B4B213 /* BottomSheetMap.xib */,
 				0C55D5B01F67FEF200B4B213 /* BottomSheet.h */,
 				0C55D5B11F67FEF200B4B213 /* Info.plist */,
 			);
+			name = BottomSheetMap;
 			path = BottomSheet;
 			sourceTree = "<group>";
 		};
-		0C55D5BA1F67FEF200B4B213 /* BottomSheetTests */ = {
+		0C55D5BA1F67FEF200B4B213 /* BottomSheetMapTests */ = {
 			isa = PBXGroup;
 			children = (
 				0C55D5BB1F67FEF200B4B213 /* BottomSheetTests.swift */,
 				0C55D5BD1F67FEF200B4B213 /* Info.plist */,
 			);
+			name = BottomSheetMapTests;
 			path = BottomSheetTests;
 			sourceTree = "<group>";
 		};
@@ -222,7 +224,7 @@
 			name = DefaultTableCells;
 			sourceTree = "<group>";
 		};
-		0C55D60B1F6802E500B4B213 /* BottomSheetApp */ = {
+		0C55D60B1F6802E500B4B213 /* BottomSheetMapApp */ = {
 			isa = PBXGroup;
 			children = (
 				0C0BD0871F6A8CA600F9294F /* backgroundbottomsheetapp.png */,
@@ -233,6 +235,7 @@
 				0C55D6151F6802E500B4B213 /* LaunchScreen.storyboard */,
 				0C55D6181F6802E500B4B213 /* Info.plist */,
 			);
+			name = BottomSheetMapApp;
 			path = BottomSheetApp;
 			sourceTree = "<group>";
 		};
@@ -362,7 +365,7 @@
 				0C55D5DF1F6800E100B4B213 /* mailOutline.png in Resources */,
 				0C55D62D1F6805B700B4B213 /* defaultImage.jpeg in Resources */,
 				0C55D5E51F6800E100B4B213 /* onduty.png in Resources */,
-				0C55D6001F68010C00B4B213 /* BottomSheet.xib in Resources */,
+				0C55D6001F68010C00B4B213 /* BottomSheetMap.xib in Resources */,
 				0C55D5D91F6800E100B4B213 /* goThere.png in Resources */,
 				0C55D5F01F6800FE00B4B213 /* TitleAndDescriptionPOICell.xib in Resources */,
 				0C55D5DD1F6800E100B4B213 /* dateRange.png in Resources */,
@@ -383,7 +386,7 @@
 				0C55D5E01F6800E100B4B213 /* mailOutline.png in Resources */,
 				0C55D62E1F6805B700B4B213 /* defaultImage.jpeg in Resources */,
 				0C55D5E61F6800E100B4B213 /* onduty.png in Resources */,
-				0C55D6011F68010C00B4B213 /* BottomSheet.xib in Resources */,
+				0C55D6011F68010C00B4B213 /* BottomSheetMap.xib in Resources */,
 				0C55D5DA1F6800E100B4B213 /* goThere.png in Resources */,
 				0C55D5F11F6800FE00B4B213 /* TitleAndDescriptionPOICell.xib in Resources */,
 				0C55D5DE1F6800E100B4B213 /* dateRange.png in Resources */,
@@ -398,7 +401,7 @@
 				0C55D6271F68044200B4B213 /* mailOutline.png in Resources */,
 				0C55D61E1F68043E00B4B213 /* TitleAndDescriptionPOICell.xib in Resources */,
 				0C0BD0881F6A8CA600F9294F /* backgroundbottomsheetapp.png in Resources */,
-				0C55D62B1F68044D00B4B213 /* BottomSheet.xib in Resources */,
+				0C55D62B1F68044D00B4B213 /* BottomSheetMap.xib in Resources */,
 				0C55D6171F6802E500B4B213 /* LaunchScreen.storyboard in Resources */,
 				0C55D6201F68043E00B4B213 /* BottomSheetIconAndTextCell.xib in Resources */,
 				0C55D6231F68044200B4B213 /* whiteChevron.png in Resources */,

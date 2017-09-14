@@ -12,7 +12,7 @@ import BottomSheet
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, BottomSheetViewDelegate {
 
-    var bottomSheet: BottomSheet?
+    var bottomSheet: BottomSheetMap?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         customData["openHours"] = "12:34 - 15:22"
         customData["title"] = "Getwell Pharmacy"
         customData["phone"] = "+4412345223"
-        customData["description"] = "All of our products guarantee ultimate satisfaction and wellness improving your daily health by a factor of 10000% and thats an actual number asd as asd asd as asda das das das dads ena ena ena ena ena ena ena ena ena ena ena dio dio dio dio dio doi dio dio dio dio dio dio dio dio dio dio dio";
+        customData["description"] = "All of our products guarantee ultimate satisfaction and wellness improving your daily health by a factor of 10000% and thats an actual All of our products guarantee ultimate satisfaction and wellness improving your daily health by a factor of 10000% and thats an actual numberAll of our products guarantee ultimate satisfaction and wellness improving your daily health by a factor of 10000% and thats an actual number";
         
         //if you want the navigation button to work, also provide longitute and latitude
         customData["longitude"] = "48.8722344"
@@ -39,10 +39,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //METHOD A) Using Custom Data
         bottomSheet.setUp(parentController: self)
         
-        bottomSheet.setData(data: customData)
+//        bottomSheet.setData(data: customData)
         
         //METHOD B) For extra customization. Using your own table and cells
-//        bottomSheet!.setUp(parentController: self, tableDelegate: self, tableDataSource: self, maxBottomSheetHeight: 0)
+//        bottomSheet.setUp(parentController: self, tableDelegate: self, tableDataSource: self, maxBottomSheetHeight: 0)
         
         //Show bottom sheet in summary mode.
         delay(1){

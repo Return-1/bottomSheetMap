@@ -74,8 +74,8 @@ public class BottomSheetMap : UIView, UIGestureRecognizerDelegate, UITableViewDe
         return false
     }
     
-    public static func getBottomSheetComponent() -> BottomSheet{
-        return Bundle.init(for: self).loadNibNamed("BottomSheet", owner: self, options: nil)![0] as! BottomSheet
+    public static func getBottomSheetComponent() -> BottomSheetMap{
+        return Bundle.init(for: self).loadNibNamed("BottomSheetMap", owner: self, options: nil)![0] as! BottomSheetMap
     }
     
     var userSetMaxHeightForPullupView:CGFloat = 0;
@@ -211,21 +211,21 @@ public class BottomSheetMap : UIView, UIGestureRecognizerDelegate, UITableViewDe
         var desc = dict["description"];
         
         if(title != nil){
-            var cell = Bundle.init(for: BottomSheet.self).loadNibNamed("TitleAndDescriptionPOICell", owner: self, options: nil)![0] as! TitleAndDescriptionPOICell
+            var cell = Bundle.init(for: BottomSheetMap.self).loadNibNamed("TitleAndDescriptionPOICell", owner: self, options: nil)![0] as! TitleAndDescriptionPOICell
             cell.setData(title: title!, description: desc)
             tempArr.append(cell)
         }
         
         var email = dict["email"]
         if(email != nil){
-            var cell = Bundle.init(for: BottomSheet.self).loadNibNamed("BottomSheetIconAndTextCell" , owner: self, options: nil)![0] as! BottomSheetIconAndTextCell
+            var cell = Bundle.init(for: BottomSheetMap.self).loadNibNamed("BottomSheetIconAndTextCell" , owner: self, options: nil)![0] as! BottomSheetIconAndTextCell
             cell.setData(title: email!, type: "email")
             tempArr.append(cell)
         }
         
         var phone = dict["phone"]
         if(phone != nil){
-            var cell = Bundle.init(for: BottomSheet.self).loadNibNamed("BottomSheetIconAndTextCell" , owner: self, options: nil)![0] as! BottomSheetIconAndTextCell
+            var cell = Bundle.init(for: BottomSheetMap.self).loadNibNamed("BottomSheetIconAndTextCell" , owner: self, options: nil)![0] as! BottomSheetIconAndTextCell
             cell.setData(title: phone!, type: "phone")
             tempArr.append(cell)
             //this is to be a placeholder
@@ -233,21 +233,21 @@ public class BottomSheetMap : UIView, UIGestureRecognizerDelegate, UITableViewDe
         
         var openHours = dict["openHours"]
         if(openHours != nil){
-            var cell = Bundle.init(for: BottomSheet.self).loadNibNamed("BottomSheetIconAndTextCell" , owner: self, options: nil)![0] as! BottomSheetIconAndTextCell
+            var cell = Bundle.init(for: BottomSheetMap.self).loadNibNamed("BottomSheetIconAndTextCell" , owner: self, options: nil)![0] as! BottomSheetIconAndTextCell
             cell.setData(title: openHours!, type: "openHours")
             tempArr.append(cell)
         }
         
         var address = dict["address"]
         if(address != nil){
-            var cell = Bundle.init(for: BottomSheet.self).loadNibNamed("BottomSheetIconAndTextCell" , owner: self, options: nil)![0] as! BottomSheetIconAndTextCell
+            var cell = Bundle.init(for: BottomSheetMap.self).loadNibNamed("BottomSheetIconAndTextCell" , owner: self, options: nil)![0] as! BottomSheetIconAndTextCell
             cell.setData(title: address!, type: "address")
             tempArr.append(cell)
         }
         
         var on_duty = dict["on_duty"]
         if(on_duty != nil){
-            var cell = Bundle.init(for: BottomSheet.self).loadNibNamed("BottomSheetIconAndTextCell" , owner: self, options: nil)![0] as! BottomSheetIconAndTextCell
+            var cell = Bundle.init(for: BottomSheetMap.self).loadNibNamed("BottomSheetIconAndTextCell" , owner: self, options: nil)![0] as! BottomSheetIconAndTextCell
             cell.setData(title: "Open tonight", type: "on_duty")
             tempArr.append(cell)
         }

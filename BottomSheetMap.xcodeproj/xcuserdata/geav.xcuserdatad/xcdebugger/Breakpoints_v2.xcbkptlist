@@ -35,5 +35,53 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BottomSheetApp/ViewController.swift"
+            timestampString = "527092678.843484"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BottomSheetApp.ViewController.viewDidLoad () -&gt; ()"
+                  moduleName = "BottomSheetApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/geav/Desktop/PROJECTS/OTHER/BottomSheet/BottomSheetApp/ViewController.swift"
+                  timestampString = "527092679.90778"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "2556">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "function signature specialization &lt;Arg[0] = Value Promoted from Box&gt; of BottomSheetApp.ViewController.(viewDidLoad () -&gt; ()).(closure #1)"
+                  moduleName = "BottomSheetApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/geav/Desktop/PROJECTS/OTHER/BottomSheet/BottomSheetApp/ViewController.swift"
+                  timestampString = "527092679.913193"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
