@@ -11,13 +11,13 @@ This section describes how to quickly setup the BottomSheet component.
 
 Load the component and add it to your view
 ```swift
-var bottomSheet = BottomSheet.getBottomSheetComponent();
+var bottomSheet = BottomSheetMap.getBottomSheetComponent();
 //add to subview
 self.view.addSubview(bottomSheet);
 ```
 ### Step 2 Method A
 
-The component comes with a few default display options. Provide your data as described below and let BottomSheet take care of the rest.
+The component comes with a few default display options. Provide your data as described below and let BottomSheetMap take care of the rest.
 
 ```swift
         var customData = [String:String]()
@@ -89,20 +89,20 @@ bottomSheet!.pullUpViewSetMode_HIDDEN()
 ```
 **OTHER**: This covers all other modes like when in transit
 
-If you want to be notified of events you can implement the BottomSheetViewDelegate methods on your parent object and be notified for:
+If you want to be notified of events you can implement the BottomSheetMapViewDelegate methods on your parent object and be notified for:
 
-**modeWillSetTo(mode: BottomSheetMode);
-modeDidSetTo(mode: BottomSheetMode);**
+**modeWillSetTo(mode: BottomSheetMapMode);
+modeDidSetTo(mode: BottomSheetMapMode);**
 
 ### Customization
 
-When initializing the BottomSheet you can either sepcify a maxHeight or leave it on automatic.
+When initializing the BottomSheetMap you can either sepcify a maxHeight or leave it on automatic.
 
 #### Automatic:
 ```swift
         bottomSheet!.setUp(parentController: self)
 ```
-If left on automatic, upon expanding the BottomSheet to it's full mode, it will cover the entire containing view. 
+If left on automatic, upon expanding the BottomSheetMap to it's full mode, it will cover the entire containing view. 
 #### Custom:
 
 ```swift

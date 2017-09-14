@@ -10,7 +10,7 @@ import UIKit
 import BottomSheet
 
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, BottomSheetViewDelegate {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, BottomSheetMapViewDelegate {
 
     var bottomSheet: BottomSheetMap?
     

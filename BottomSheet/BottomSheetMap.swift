@@ -8,12 +8,12 @@
 
 import UIKit
 
-protocol BottomSheetViewDelegate {
-    func bsModeWillSetTo(mode: BottomSheetMode);
-    func bsModeDidSetTo(mode: BottomSheetMode);
+protocol BottomSheetMapViewDelegate {
+    func bsModeWillSetTo(mode: BottomSheetMapMode);
+    func bsModeDidSetTo(mode: BottomSheetMapMode);
 }
 
-public enum BottomSheetMode{
+public enum BottomSheetMapMode{
     case HIDDEN;
     case FULL;
     case SUMMARY;
@@ -34,7 +34,7 @@ public class BottomSheetMap : UIView, UIGestureRecognizerDelegate, UITableViewDe
     }
     
     var parentController : UIViewController?;
-    var delegate : BottomSheetViewDelegate?;
+    var delegate : BottomSheetMapViewDelegate?;
     
     public var animFuncForParent : (() -> Void)?
     
@@ -83,7 +83,7 @@ public class BottomSheetMap : UIView, UIGestureRecognizerDelegate, UITableViewDe
     
         self.parentController = parentController;
         self.mainImagePullUp?.image = self.defaultImageForLocation;
-        self.delegate = parentController as? BottomSheetViewDelegate; //is there a case where the delegate isnt the same as the parent ctlr?
+        self.delegate = parentController as? BottomSheetMapViewDelegate; //is there a case where the delegate isnt the same as the parent ctlr?
         
         //view constraints
         self.translatesAutoresizingMaskIntoConstraints = false
@@ -487,7 +487,7 @@ public class BottomSheetMap : UIView, UIGestureRecognizerDelegate, UITableViewDe
         }
     }
     
-    public func getMode() -> BottomSheetMode{
+    public func getMode() -> BottomSheetMapMode{
         if(pullUpViewBottomCSTR!.constant == 0){
             return .FULL;
         }
