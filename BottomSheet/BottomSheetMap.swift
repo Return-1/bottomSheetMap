@@ -20,7 +20,7 @@ public enum BottomSheetMode{
     case OTHER;
 }
 
-public class BottomSheet : UIView, UIGestureRecognizerDelegate, UITableViewDelegate, UITableViewDataSource  {
+public class BottomSheetMap : UIView, UIGestureRecognizerDelegate, UITableViewDelegate, UITableViewDataSource  {
     
     //parameters
     var pullupHeightForModeSUMMARY = CGFloat(80); //make this % of parentview

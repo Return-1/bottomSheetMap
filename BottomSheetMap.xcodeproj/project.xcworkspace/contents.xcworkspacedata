@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:BottomSheet.xcodeproj">
+      location = "self:/Users/geav/Desktop/PROJECTS/OTHER/BottomSheet/BottomSheetMap.xcodeproj">
    </FileRef>
 </Workspace>

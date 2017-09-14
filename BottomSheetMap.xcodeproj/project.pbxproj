@@ -41,8 +41,8 @@
 		0C55D5F71F6800FE00B4B213 /* BSDaysOpenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C55D5EC1F6800FE00B4B213 /* BSDaysOpenCell.swift */; };
 		0C55D5F81F6800FE00B4B213 /* BSDaysOpenCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C55D5ED1F6800FE00B4B213 /* BSDaysOpenCell.xib */; };
 		0C55D5F91F6800FE00B4B213 /* BSDaysOpenCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C55D5ED1F6800FE00B4B213 /* BSDaysOpenCell.xib */; };
-		0C55D5FE1F68010C00B4B213 /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C55D5FA1F68010C00B4B213 /* BottomSheet.swift */; };
-		0C55D5FF1F68010C00B4B213 /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C55D5FA1F68010C00B4B213 /* BottomSheet.swift */; };
+		0C55D5FE1F68010C00B4B213 /* BottomSheetMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C55D5FA1F68010C00B4B213 /* BottomSheetMap.swift */; };
+		0C55D5FF1F68010C00B4B213 /* BottomSheetMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C55D5FA1F68010C00B4B213 /* BottomSheetMap.swift */; };
 		0C55D6001F68010C00B4B213 /* BottomSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C55D5FB1F68010C00B4B213 /* BottomSheet.xib */; };
 		0C55D6011F68010C00B4B213 /* BottomSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C55D5FB1F68010C00B4B213 /* BottomSheet.xib */; };
 		0C55D60D1F6802E500B4B213 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C55D60C1F6802E500B4B213 /* AppDelegate.swift */; };
@@ -50,7 +50,7 @@
 		0C55D6121F6802E500B4B213 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C55D6101F6802E500B4B213 /* Main.storyboard */; };
 		0C55D6141F6802E500B4B213 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C55D6131F6802E500B4B213 /* Assets.xcassets */; };
 		0C55D6171F6802E500B4B213 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C55D6151F6802E500B4B213 /* LaunchScreen.storyboard */; };
-		0C55D61C1F68043300B4B213 /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C55D5FA1F68010C00B4B213 /* BottomSheet.swift */; };
+		0C55D61C1F68043300B4B213 /* BottomSheetMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C55D5FA1F68010C00B4B213 /* BottomSheetMap.swift */; };
 		0C55D61D1F68043E00B4B213 /* TitleAndDescriptionPOICell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C55D5E81F6800FE00B4B213 /* TitleAndDescriptionPOICell.swift */; };
 		0C55D61E1F68043E00B4B213 /* TitleAndDescriptionPOICell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C55D5E91F6800FE00B4B213 /* TitleAndDescriptionPOICell.xib */; };
 		0C55D61F1F68043E00B4B213 /* BottomSheetIconAndTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C55D5EA1F6800FE00B4B213 /* BottomSheetIconAndTextCell.swift */; };
@@ -104,7 +104,7 @@
 		0C55D5EB1F6800FE00B4B213 /* BottomSheetIconAndTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BottomSheetIconAndTextCell.xib; sourceTree = "<group>"; };
 		0C55D5EC1F6800FE00B4B213 /* BSDaysOpenCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSDaysOpenCell.swift; sourceTree = "<group>"; };
 		0C55D5ED1F6800FE00B4B213 /* BSDaysOpenCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BSDaysOpenCell.xib; sourceTree = "<group>"; };
-		0C55D5FA1F68010C00B4B213 /* BottomSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
+		0C55D5FA1F68010C00B4B213 /* BottomSheetMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomSheetMap.swift; sourceTree = "<group>"; };
 		0C55D5FB1F68010C00B4B213 /* BottomSheet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BottomSheet.xib; sourceTree = "<group>"; };
 		0C55D60A1F6802E500B4B213 /* BottomSheetApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BottomSheetApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C55D60C1F6802E500B4B213 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -167,7 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				0C55D5CA1F68007100B4B213 /* UIComponents */,
-				0C55D5FA1F68010C00B4B213 /* BottomSheet.swift */,
+				0C55D5FA1F68010C00B4B213 /* BottomSheetMap.swift */,
 				0C55D5FB1F68010C00B4B213 /* BottomSheet.xib */,
 				0C55D5B01F67FEF200B4B213 /* BottomSheet.h */,
 				0C55D5B11F67FEF200B4B213 /* Info.plist */,
@@ -328,7 +328,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0C55D5A71F67FEF200B4B213 /* Build configuration list for PBXProject "BottomSheet" */;
+			buildConfigurationList = 0C55D5A71F67FEF200B4B213 /* Build configuration list for PBXProject "BottomSheetMap" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -424,7 +424,7 @@
 			files = (
 				0C55D5F21F6800FE00B4B213 /* BottomSheetIconAndTextCell.swift in Sources */,
 				0C55D5F61F6800FE00B4B213 /* BSDaysOpenCell.swift in Sources */,
-				0C55D5FE1F68010C00B4B213 /* BottomSheet.swift in Sources */,
+				0C55D5FE1F68010C00B4B213 /* BottomSheetMap.swift in Sources */,
 				0C55D5EE1F6800FE00B4B213 /* TitleAndDescriptionPOICell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,7 +434,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C55D5EF1F6800FE00B4B213 /* TitleAndDescriptionPOICell.swift in Sources */,
-				0C55D5FF1F68010C00B4B213 /* BottomSheet.swift in Sources */,
+				0C55D5FF1F68010C00B4B213 /* BottomSheetMap.swift in Sources */,
 				0C55D5BC1F67FEF200B4B213 /* BottomSheetTests.swift in Sources */,
 				0C55D5F31F6800FE00B4B213 /* BottomSheetIconAndTextCell.swift in Sources */,
 				0C55D5F71F6800FE00B4B213 /* BSDaysOpenCell.swift in Sources */,
@@ -449,7 +449,7 @@
 				0C55D6211F68043E00B4B213 /* BSDaysOpenCell.swift in Sources */,
 				0C55D61F1F68043E00B4B213 /* BottomSheetIconAndTextCell.swift in Sources */,
 				0C55D60F1F6802E500B4B213 /* ViewController.swift in Sources */,
-				0C55D61C1F68043300B4B213 /* BottomSheet.swift in Sources */,
+				0C55D61C1F68043300B4B213 /* BottomSheetMap.swift in Sources */,
 				0C55D60D1F6802E500B4B213 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -677,7 +677,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0C55D5A71F67FEF200B4B213 /* Build configuration list for PBXProject "BottomSheet" */ = {
+		0C55D5A71F67FEF200B4B213 /* Build configuration list for PBXProject "BottomSheetMap" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0C55D5BF1F67FEF200B4B213 /* Debug */,

@@ -33,17 +33,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //////////////
         //SETTING UP THE BOTTOM SHEET
         //////////////
-        var bottomSheet = BottomSheet.getBottomSheetComponent();
+        var bottomSheet = BottomSheetMap.getBottomSheetComponent();
         self.view.addSubview(bottomSheet);
         
         //METHOD A) Using Custom Data
         bottomSheet.setUp(parentController: self)
         
         bottomSheet.setData(data: customData)
-        
-        
-        
-        
         
         //METHOD B) For extra customization. Using your own table and cells
 //        bottomSheet!.setUp(parentController: self, tableDelegate: self, tableDataSource: self, maxBottomSheetHeight: 0)
@@ -52,11 +48,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         delay(1){
             bottomSheet.pullUpViewSetMode_SUMMARY()
         }
-        
-        
-        //////////
-        //ADDING CALLBACKS
-        ////////
         
     }
     
