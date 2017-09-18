@@ -511,7 +511,7 @@ public class BottomSheetMap : UIView, UIGestureRecognizerDelegate, UITableViewDe
     @IBOutlet weak var mainImagePullUpHeightCSTR: NSLayoutConstraint!
     @IBOutlet weak var mainImagePullUpBottomCSTR: NSLayoutConstraint!
     @IBOutlet weak var obscuringFadeEffectView : UIView!
-    var defaultImageForLocation = UIImage(named: "defaultImage.jpeg", in: Bundle.init(identifier: "com.malforked.BottomSheet"), compatibleWith: nil)
+    var defaultImageForLocation = UIImage(named: "defaultImage.jpeg", in: Bundle.init(identifier: "com.malforked.BottomSheetMap"), compatibleWith: nil)
 
     func pullUpProgress() -> CGFloat{
         

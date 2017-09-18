@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import BottomSheet
+import BottomSheetMap
 
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, BottomSheetMapViewDelegate {
@@ -39,7 +39,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //METHOD A) Using Custom Data
         bottomSheet.setUp(parentController: self)
         
-//        bottomSheet.setData(data: customData)
+        bottomSheet.setData(data: customData)
         
         //METHOD B) For extra customization. Using your own table and cells
 //        bottomSheet.setUp(parentController: self, tableDelegate: self, tableDataSource: self, maxBottomSheetHeight: 0)
@@ -73,11 +73,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //Delegate methods
     ////
     
-    func bsModeDidSetTo(mode: BottomSheetMode) {
+    func bsModeDidSetTo(mode: BottomSheetMapMode) {
         print(mode)
     }
     
-    func bsModeWillSetTo(mode: BottomSheetMode) {
+    func bsModeWillSetTo(mode: BottomSheetMapMode) {
         print(mode)
     }
     
