@@ -1,0 +1,13 @@
+/* 
+  File.strings
+  BottomSheetMap
+
+  Created by George Avgoustis on 18/09/2017.
+  Copyright © 2017 Malforked. All rights reserved.
+*/
+
+"Open tonight" = "Open tonight";
+"openDays"  = "Open days";
+"openHours"  = "Open hours";
+"address"  = "Address";
+"phone"  = "Phone";

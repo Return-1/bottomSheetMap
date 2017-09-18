@@ -52,10 +52,10 @@ public class BottomSheetMap : UIView, UIGestureRecognizerDelegate, UITableViewDe
 
         //performance issues for those two below
         //ADD SHADOW TO PULLUPVIEW
-//        pullupView.layer.shadowColor = UIColor.black.cgColor
-//        pullupView.layer.shadowOffset = CGSize(width: 0, height: -1.2)
-//        pullupView.layer.shadowOpacity = 0.12;
-//        pullupView.layer.shadowRadius = 1.1;
+        pullupView.layer.shadowColor = UIColor.black.cgColor
+        pullupView.layer.shadowOffset = CGSize(width: 0, height: -1.2)
+        pullupView.layer.shadowOpacity = 0.15;
+        pullupView.layer.shadowRadius = 1.2;
         
         //ADD SHADOW TO IMAGE
 //        mainImagePullUp?.layer.shadowColor = UIColor.black.cgColor
@@ -248,7 +248,7 @@ public class BottomSheetMap : UIView, UIGestureRecognizerDelegate, UITableViewDe
         var on_duty = dict["on_duty"]
         if(on_duty != nil){
             var cell = Bundle.init(for: BottomSheetMap.self).loadNibNamed("BottomSheetIconAndTextCell" , owner: self, options: nil)![0] as! BottomSheetIconAndTextCell
-            cell.setData(title: "Open tonight", type: "on_duty")
+            cell.setData(title: "Open tonight".localized, type: "on_duty")
             tempArr.append(cell)
         }
         
@@ -284,7 +284,7 @@ public class BottomSheetMap : UIView, UIGestureRecognizerDelegate, UITableViewDe
         }
         
         if(theCell!.type == "email"){
-            let emailaddr: String = "mail://" + theCell!.titleLabel!.text!
+            let emailaddr: String = "mailto://" + theCell!.titleLabel!.text!
             UIApplication.shared.openURL(URL(string: emailaddr)!)
         }
         
@@ -511,7 +511,7 @@ public class BottomSheetMap : UIView, UIGestureRecognizerDelegate, UITableViewDe
     @IBOutlet weak var mainImagePullUpHeightCSTR: NSLayoutConstraint!
     @IBOutlet weak var mainImagePullUpBottomCSTR: NSLayoutConstraint!
     @IBOutlet weak var obscuringFadeEffectView : UIView!
-    var defaultImageForLocation = UIImage(named: "defaultImage.jpeg", in: Bundle.init(identifier: "com.malforked.BottomSheetMap"), compatibleWith: nil)
+    public var defaultImageForLocation = UIImage(named: "defaultImage.jpeg", in: Bundle.init(identifier: "com.malforked.BottomSheetMap"), compatibleWith: nil)
 
     func pullUpProgress() -> CGFloat{
         
