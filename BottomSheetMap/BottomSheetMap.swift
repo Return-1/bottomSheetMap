@@ -523,7 +523,13 @@ public class BottomSheetMap : UIView, UIGestureRecognizerDelegate, UITableViewDe
     
     private func parallaxImage(){
         
-        mainImagePullUpBottomCSTR.constant = mainImagePullUp!.frame.height*pullUpProgress() - mainImagePullUp!.frame.height;
+        var calculated = mainImagePullUp!.frame.height*pullUpProgress() - mainImagePullUp!.frame.height;
+        
+        if(calculated > 0){
+            calculated = 0
+        }
+        
+        mainImagePullUpBottomCSTR.constant = calculated
         
         var calculatedAlpha = (1 - pullUpProgress()) + 0.10
         obscuringFadeEffectView.alpha = calculatedAlpha;
