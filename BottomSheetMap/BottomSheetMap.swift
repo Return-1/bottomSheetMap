@@ -11,6 +11,7 @@ import UIKit
 protocol BottomSheetMapViewDelegate {
     func bsModeWillSetTo(mode: BottomSheetMapMode);
     func bsModeDidSetTo(mode: BottomSheetMapMode);
+    func navigatePressed();
 }
 
 public enum BottomSheetMapMode{
@@ -37,6 +38,7 @@ public class BottomSheetMap : UIView, UIGestureRecognizerDelegate, UITableViewDe
     var delegate : BottomSheetMapViewDelegate?;
     
     public var animFuncForParent : (() -> Void)?
+    public var navigateFuncForParent : (() -> Void)?
     
     @IBOutlet weak var dismissButton : UIButton?
     @IBOutlet weak var pullupView : UIView!
@@ -119,9 +121,9 @@ public class BottomSheetMap : UIView, UIGestureRecognizerDelegate, UITableViewDe
         }
     }
     
-    var userData = [String:String]()
+    var userData = [String:AnyObject]()
     
-    public func setData(data: [String:String]){
+    public func setData(data: [String:AnyObject]){
     
         self.userData = data
         self.displayFields = parseDefaultDataDict(dict: userData)
@@ -129,7 +131,7 @@ public class BottomSheetMap : UIView, UIGestureRecognizerDelegate, UITableViewDe
         self.dataTable.layoutIfNeeded()
         
         if(self.userData["photoUrl"] != nil){
-            self.getImageForMainImage(imageUrl: self.userData["photoUrl"]!) { (theImage) in
+            self.getImageForMainImage(imageUrl: self.userData["photoUrl"]! as! String) { (theImage) in
                 self.mainImagePullUp?.image = theImage
             }
         }
@@ -203,7 +205,7 @@ public class BottomSheetMap : UIView, UIGestureRecognizerDelegate, UITableViewDe
     @IBOutlet weak var dataTable : UITableView!
     
     var displayFields = [UITableViewCell]()
-    func parseDefaultDataDict(dict : [String:String]) -> [UITableViewCell]{
+    func parseDefaultDataDict(dict : [String:AnyObject]) -> [UITableViewCell]{
         
         var tempArr = [UITableViewCell]()
         
@@ -212,21 +214,21 @@ public class BottomSheetMap : UIView, UIGestureRecognizerDelegate, UITableViewDe
         
         if(title != nil){
             var cell = Bundle.init(for: BottomSheetMap.self).loadNibNamed("TitleAndDescriptionPOICell", owner: self, options: nil)![0] as! TitleAndDescriptionPOICell
-            cell.setData(title: title!, description: desc)
+            cell.setData(title: title! as! String, description: desc as? String)
             tempArr.append(cell)
         }
         
         var email = dict["email"]
         if(email != nil){
             var cell = Bundle.init(for: BottomSheetMap.self).loadNibNamed("BottomSheetIconAndTextCell" , owner: self, options: nil)![0] as! BottomSheetIconAndTextCell
-            cell.setData(title: email!, type: "email")
+            cell.setData(title: email! as! String, type: "email")
             tempArr.append(cell)
         }
         
         var phone = dict["phone"]
         if(phone != nil){
             var cell = Bundle.init(for: BottomSheetMap.self).loadNibNamed("BottomSheetIconAndTextCell" , owner: self, options: nil)![0] as! BottomSheetIconAndTextCell
-            cell.setData(title: phone!, type: "phone")
+            cell.setData(title: phone! as! String, type: "phone")
             tempArr.append(cell)
             //this is to be a placeholder
         }
@@ -234,15 +236,22 @@ public class BottomSheetMap : UIView, UIGestureRecognizerDelegate, UITableViewDe
         var openHours = dict["openHours"]
         if(openHours != nil){
             var cell = Bundle.init(for: BottomSheetMap.self).loadNibNamed("BottomSheetIconAndTextCell" , owner: self, options: nil)![0] as! BottomSheetIconAndTextCell
-            cell.setData(title: openHours!, type: "openHours")
+            cell.setData(title: openHours! as! String, type: "openHours")
             tempArr.append(cell)
         }
         
         var address = dict["address"]
         if(address != nil){
             var cell = Bundle.init(for: BottomSheetMap.self).loadNibNamed("BottomSheetIconAndTextCell" , owner: self, options: nil)![0] as! BottomSheetIconAndTextCell
-            cell.setData(title: address!, type: "address")
+            cell.setData(title: address! as! String, type: "address")
             tempArr.append(cell)
+        }
+        
+        var customCellArr = dict["customCellArr"] as? [UITableViewCell]
+        if(customCellArr != nil){
+            for var k in 0..<customCellArr!.count{
+                tempArr.append(customCellArr![k])
+            }
         }
         
         var on_duty = dict["on_duty"]
@@ -542,19 +551,24 @@ public class BottomSheetMap : UIView, UIGestureRecognizerDelegate, UITableViewDe
     @IBOutlet weak var navigateCarButton : UIButton?
     
     @IBAction func navigateCarButtonPressed(sender: UIButton){
+        self.delegate?.navigatePressed();
+        if(navigateFuncForParent != nil){
+            self.navigateFuncForParent!();
+        }
+        
         openGoogleMaps()
     }
     
     func openGoogleMaps(){
         
-        var lat = self.userData["latitude"]
-        var lon = self.userData["longitude"]
+        var lat = self.userData["latitude"] as? String
+        var lon = self.userData["longitude"] as? String
         
         if(lat == nil || lon == nil){
             return;
         }
         
-        var stringtouse = "comgooglemaps://?saddr=&daddr=" + lat! + "," + lon! + "&directionsmode=walking"
+        var stringtouse = "comgooglemaps://?saddr=&daddr=" + (lat! ) + "," + lon! + "&directionsmode=walking"
         //        self.delegate?.navigateButtonPressed()
         //TODO WHY DOES THIS RETURN FALSE!?!?!?
         //            if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
