@@ -3,6 +3,10 @@ BottomSheetMap is an approximating the bottom sheet component found in google ma
 
 <img src="https://raw.githubusercontent.com/Return-1/bottomSheetMap/master/recordingBottomSheet1.gif" width="260">
 
+# Disclaimer
+
+This repo is not maintained and has pretty much been written in a rush. Works for my use cases but use at own risk
+
 ## Basic Setup
 
 This section describes how to quickly setup the BottomSheet component.
